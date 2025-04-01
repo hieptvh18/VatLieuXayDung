@@ -3,66 +3,351 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phateco</title>
+    <title>LGT Join Stock Company</title>
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    <!-- Custom CSS -->
+    <style>
+        /* Fix Swiper overflow */
+        .swiper-container {
+            width: 100%;
+            overflow-x: hidden;
+        }
+        .swiper-slide {
+            width: 100% !important;
+            flex-shrink: 0;
+        }
+        body {
+            overflow-x: hidden;
+        }
+
+        /* Hover scale effect for image blocks */
+        .image-block {
+            transition: transform 0.3s ease;
+        }
+        .image-block:hover {
+            transform: scale(1.05);
+        }
+
+        /* Fixed Header */
+        header {
+            transition: all 0.3s ease;
+        }
+        header.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 50;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Scroll to Top Button */
+        #scroll-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1e3a8a;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        #scroll-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        #scroll-to-top:hover {
+            background-color: #2563eb;
+        }
+
+        /* Dropdown menu styles for desktop */
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1e3a8a;
+            min-width: 200px;
+            z-index: 10;
+            top: 100%;
+            left: 0;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px 15px;
+            display: block;
+            text-decoration: none;
+        }
+        .dropdown-content a:hover {
+            background-color: #2563eb;
+        }
+        /* Submenu (dropdown cấp 2) for desktop */
+        .dropdown-content .sub-dropdown {
+            position: relative;
+        }
+        .dropdown-content .sub-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #1e40af;
+            min-width: 200px;
+            left: 100%;
+            top: 0;
+        }
+        .sub-dropdown:hover .sub-dropdown-content {
+            display: block;
+        }
+
+        /* Mobile menu styles */
+        #mobile-menu {
+            display: none;
+        }
+        .mobile-dropdown {
+            position: relative;
+        }
+        .mobile-dropdown-content {
+            display: none;
+            background-color: #1e40af;
+            padding-left: 15px;
+        }
+        .mobile-sub-dropdown-content {
+            display: none;
+            background-color: #1e3a8a;
+            padding-left: 15px;
+        }
+        .mobile-dropdown.active .mobile-dropdown-content,
+        .mobile-sub-dropdown.active .mobile-sub-dropdown-content {
+            display: block;
+        }
+        .mobile-dropdown-toggle::after {
+            content: '\f078';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            float: right;
+        }
+        .show{
+            display: block !important;
+        }
+    </style>
 </head>
 <body class="font-sans">
     <!-- Header -->
     <header class="bg-blue-900 text-white py-4">
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center">
-                <img src="logo.png" alt="Phateco Logo" class="h-12">
+                <img src="./assets/img/logoLGT.png" alt="LGT Join Stock Company Logo" class="h-[4rem]">
                 <div class="ml-4">
-                    <h1 class="text-lg font-bold">PHATECO</h1>
-                    <p class="text-sm">Technical Services Joint Stock Company</p>
+                    <h1 class="text-lg font-bold">LGT Join Stock Company</h1>
+                    <!-- <p class="text-sm">Technical Services Joint Stock Company</p> -->
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6">
-                <a href="#" class="hover:text-blue-300">Home</a>
-                <a href="#" class="hover:text-blue-300">General</a>
-                <a href="#" class="hover:text-blue-300">Business Areas</a>
-                <a href="#" class="hover:text-blue-300">Management System</a>
-                <a href="#" class="hover:text-blue-300">News</a>
-                <a href="#" class="hover:text-blue-300">Contact</a>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">Home</a>
+                    <div class="dropdown-content">
+                        <a href="#">Home Page 1</a>
+                        <a href="#">Home Page 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">General</a>
+                    <div class="dropdown-content">
+                        <a href="#">About Us</a>
+                        <a href="#">Our Team</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">Business Areas</a>
+                    <div class="dropdown-content">
+                        <a href="#">Service 1</a>
+                        <div class="sub-dropdown">
+                            <a href="#">Service 2</a>
+                            <div class="sub-dropdown-content">
+                                <a href="#">Sub Service 2.1</a>
+                                <a href="#">Sub Service 2.2</a>
+                            </div>
+                        </div>
+                        <a href="#">Service 3</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">Management System</a>
+                    <div class="dropdown-content">
+                        <a href="#">System 1</a>
+                        <a href="#">System 2</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">News</a>
+                    <div class="dropdown-content">
+                        <a href="#">Latest News</a>
+                        <a href="#">Events</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="#" class="hover:text-blue-300">Contact</a>
+                    <div class="dropdown-content">
+                        <a href="#">Contact Form</a>
+                        <a href="#">Our Location</a>
+                    </div>
+                </div>
             </nav>
             <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-blue-800 text-white">
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">Home</a>
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">General</a>
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">Business Areas</a>
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">Management System</a>
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">News</a>
-            <a href="#" class="block py-2 px-4 hover:bg-blue-700">Contact</a>
+        <div id="mobile-menu" class="md:hidden bg-blue-800 text-white">
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Home</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Home Page 1</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Home Page 2</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">General</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">About Us</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Our Team</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Business Areas</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Service 1</a>
+                    <div class="mobile-sub-dropdown">
+                        <a href="#" class="block py-2 px-4 hover:bg-blue-600 mobile-dropdown-toggle" onclick="toggleMobileSubDropdown(event, this)">Service 2</a>
+                        <div class="mobile-sub-dropdown-content">
+                            <a href="#" class="block py-2 px-4 hover:bg-blue-500">Sub Service 2.1</a>
+                            <a href="#" class="block py-2 px-4 hover:bg-blue-500">Sub Service 2.2</a>
+                        </div>
+                    </div>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Service 3</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Management System</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">System 1</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">System 2</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">News</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Latest News</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Events</a>
+                </div>
+            </div>
+            <div class="mobile-dropdown">
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Contact</a>
+                <div class="mobile-dropdown-content">
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Contact Form</a>
+                    <a href="#" class="block py-2 px-4 hover:bg-blue-600">Our Location</a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="relative bg-cover bg-center h-96" style="background-image: url('hero-bg.jpg')">
-        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
-            <div class="text-center text-white">
-                <h2 class="text-4xl font-bold mb-4">PROFESSIONAL HONESTY, ASSURANCE</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
-                    <div>
-                        <h3 class="text-xl font-semibold">VISION</h3>
-                        <p>Become a globally recognized...</p>
+    <!-- Hero Section with Swiper Slider -->
+    <section class="relative">
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <!-- Slide 1 -->
+                <div class="swiper-slide">
+                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg1.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h2 class="text-4xl font-bold mb-4">PROFESSIONAL HONESTY, ASSURANCE</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">VISION</h3>
+                                        <p>Become a globally recognized...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">MISSION</h3>
+                                        <p>Bringing the best technical...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">BUSINESS PHILOSOPHY</h3>
+                                        <p>Honesty and quality...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold">MISSION</h3>
-                        <p>Bringing the best technical...</p>
+                </div>
+                <!-- Slide 2 -->
+                <div class="swiper-slide">
+                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg2.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h2 class="text-4xl font-bold mb-4">INNOVATION AND EXCELLENCE</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">VISION</h3>
+                                        <p>Leading the industry...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">MISSION</h3>
+                                        <p>Delivering top-notch...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">BUSINESS PHILOSOPHY</h3>
+                                        <p>Commitment to excellence...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        <h3 class="text-xl font-semibold">BUSINESS PHILOSOPHY</h3>
-                        <p>Honesty and quality...</p>
+                </div>
+                <!-- Slide 3 -->
+                <div class="swiper-slide">
+                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg3.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h2 class="text-4xl font-bold mb-4">SUSTAINABLE GROWTH</h2>
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
+                                    <div>
+                                        <h3 class="text-xl font-semibold">VISION</h3>
+                                        <p>Building a sustainable...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">MISSION</h3>
+                                        <p>Ensuring long-term...</p>
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-semibold">BUSINESS PHILOSOPHY</h3>
+                                        <p>Balancing growth...</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Navigation -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -71,7 +356,7 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">BUSINESS AREAS</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="business1.jpg" alt="PNIC 9712" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-xl font-semibold">PNIC 9712</h3>
@@ -79,10 +364,18 @@
                     </div>
                 </div>
                 <div class="grid grid-cols-2 gap-4">
-                    <img src="business2.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
-                    <img src="business3.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
-                    <img src="business4.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
-                    <img src="business5.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
+                    <div class="image-block">
+                        <img src="business2.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="image-block">
+                        <img src="business3.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="image-block">
+                        <img src="business4.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
+                    </div>
+                    <div class="image-block">
+                        <img src="business5.jpg" alt="Business Image" class="w-full h-32 object-cover rounded-lg">
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,19 +386,19 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">NEWS</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="news1.jpg" alt="News 1" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Phateco completes...</h3>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="news2.jpg" alt="News 2" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">General meeting...</h3>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="news3.jpg" alt="News 3" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Phateco company...</h3>
@@ -120,19 +413,19 @@
         <div class="container mx-auto px-4">
             <h2 class="text-3xl font-bold text-center mb-8">PROJECT</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="project1.jpg" alt="Project 1" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Van Phong Thermal...</h3>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="project2.jpg" alt="Project 2" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">Nghi Son 2 TPP...</h3>
                     </div>
                 </div>
-                <div class="bg-white shadow-lg rounded-lg overflow-hidden">
+                <div class="bg-white shadow-lg rounded-lg overflow-hidden image-block">
                     <img src="project3.jpg" alt="Project 3" class="w-full h-48 object-cover">
                     <div class="p-4">
                         <h3 class="text-lg font-semibold">External Tank...</h3>
@@ -176,12 +469,80 @@
         </div>
     </footer>
 
-    <!-- JavaScript for mobile menu -->
+    <!-- Scroll to Top Button -->
+    <div id="scroll-to-top">
+        <i class="fas fa-chevron-up text-xl"></i>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- JavaScript for mobile menu, Swiper, fixed header, and scroll to top -->
     <script>
+        // Mobile Menu Toggle
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            menu.classList.toggle('show');
         }
+
+        // Toggle Mobile Dropdown
+        function toggleMobileDropdown(event, element) {
+            event.preventDefault();
+            const dropdown = element.parentElement;
+            dropdown.classList.toggle('active');
+        }
+
+        // Toggle Mobile Sub-Dropdown
+        function toggleMobileSubDropdown(event, element) {
+            event.preventDefault();
+            const subDropdown = element.parentElement;
+            subDropdown.classList.toggle('active');
+        }
+
+        // Initialize Swiper
+        var swiper = new Swiper('.swiper-container', {
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            slidesPerView: 1,
+            spaceBetween: 0,
+        });
+
+        // Fixed Header on Scroll
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('fixed');
+            } else {
+                header.classList.remove('fixed');
+            }
+        });
+
+        // Scroll to Top Button
+        const scrollToTopBtn = document.getElementById('scroll-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopBtn.classList.add('visible');
+            } else {
+                scrollToTopBtn.classList.remove('visible');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 </body>
 </html>
