@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LGT Join Stock Company</title>
+    <title>LGT Joint Stock Company</title>
     <!-- TailwindCSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
@@ -12,168 +13,31 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <!-- Custom CSS -->
     <style>
-        /* Fix Swiper overflow */
-        .swiper-container {
-            width: 100%;
-            overflow-x: hidden;
-        }
-        .swiper-slide {
-            width: 100% !important;
-            flex-shrink: 0;
-        }
-        body {
-            overflow-x: hidden;
-        }
 
-        /* Hover scale effect for image blocks */
-        .image-block {
-            transition: transform 0.3s ease;
-        }
-        .image-block:hover {
-            transform: scale(1.05);
-        }
-
-        /* Fixed Header */
-        header {
-            transition: all 0.3s ease;
-        }
-        header.fixed {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 50;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Scroll to Top Button */
-        #scroll-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #1e3a8a;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 100;
-        }
-        #scroll-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        #scroll-to-top:hover {
-            background-color: #2563eb;
-        }
-
-        /* Dropdown menu styles for desktop */
-        .dropdown {
-            position: relative;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1e3a8a;
-            min-width: 200px;
-            z-index: 10;
-            top: 100%;
-            left: 0;
-        }
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-        .dropdown-content a {
-            color: white;
-            padding: 10px 15px;
-            display: block;
-            text-decoration: none;
-        }
-        .dropdown-content a:hover {
-            background-color: #2563eb;
-        }
-        /* Submenu (dropdown cấp 2) for desktop */
-        .dropdown-content .sub-dropdown {
-            position: relative;
-        }
-        .dropdown-content .sub-dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #1e40af;
-            min-width: 200px;
-            left: 100%;
-            top: 0;
-        }
-        .sub-dropdown:hover .sub-dropdown-content {
-            display: block;
-        }
-
-        /* Mobile menu styles */
-        #mobile-menu {
-            display: none;
-        }
-        .mobile-dropdown {
-            position: relative;
-        }
-        .mobile-dropdown-content {
-            display: none;
-            background-color: #1e40af;
-            padding-left: 15px;
-        }
-        .mobile-sub-dropdown-content {
-            display: none;
-            background-color: #1e3a8a;
-            padding-left: 15px;
-        }
-        .mobile-dropdown.active .mobile-dropdown-content,
-        .mobile-sub-dropdown.active .mobile-sub-dropdown-content {
-            display: block;
-        }
-        .mobile-dropdown-toggle::after {
-            content: '\f078';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            float: right;
-        }
-        .show{
-            display: block !important;
-        }
     </style>
+    <link rel="stylesheet" href="./assets/css/styles.css">
 </head>
+
 <body class="font-sans">
     <!-- Header -->
-    <header class="bg-blue-900 text-white py-4">
+    <header class="bg-[#0A3F89] text-white py-4">
         <div class="container mx-auto flex justify-between items-center px-4">
             <div class="flex items-center">
                 <img src="./assets/img/logoLGT.png" alt="LGT Join Stock Company Logo" class="h-[4rem]">
                 <div class="ml-4">
-                    <h1 class="text-lg font-bold">LGT Join Stock Company</h1>
+                    <h1 class="text-lg font-bold">LGT Joint Stock Company</h1>
                     <!-- <p class="text-sm">Technical Services Joint Stock Company</p> -->
                 </div>
             </div>
             <nav class="hidden md:flex space-x-6">
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">Home</a>
-                    <div class="dropdown-content">
-                        <a href="#">Home Page 1</a>
-                        <a href="#">Home Page 2</a>
-                    </div>
+                    <a href="#" class="hover:text-blue-300">Trang chủ</a>
                 </div>
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">General</a>
-                    <div class="dropdown-content">
-                        <a href="#">About Us</a>
-                        <a href="#">Our Team</a>
-                    </div>
+                    <a href="#" class="hover:text-blue-300">Giới thiệu</a>
                 </div>
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">Business Areas</a>
+                    <a href="#" class="hover:text-blue-300">Tin tức</a>
                     <div class="dropdown-content">
                         <a href="#">Service 1</a>
                         <div class="sub-dropdown">
@@ -187,25 +51,21 @@
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">Management System</a>
+                    <a href="#" class="hover:text-blue-300">Danh mục</a>
                     <div class="dropdown-content">
                         <a href="#">System 1</a>
                         <a href="#">System 2</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">News</a>
+                    <a href="#" class="hover:text-blue-300">Danh mục</a>
                     <div class="dropdown-content">
                         <a href="#">Latest News</a>
                         <a href="#">Events</a>
                     </div>
                 </div>
                 <div class="dropdown">
-                    <a href="#" class="hover:text-blue-300">Contact</a>
-                    <div class="dropdown-content">
-                        <a href="#">Contact Form</a>
-                        <a href="#">Our Location</a>
-                    </div>
+                    <a href="#" class="hover:text-blue-300">Liên hệ</a>
                 </div>
             </nav>
             <button class="md:hidden focus:outline-none" onclick="toggleMenu()">
@@ -215,25 +75,29 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="md:hidden bg-blue-800 text-white">
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Home</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">Home</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Home Page 1</a>
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Home Page 2</a>
                 </div>
             </div>
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">General</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">General</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">About Us</a>
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Our Team</a>
                 </div>
             </div>
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Business Areas</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">Business Areas</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Service 1</a>
                     <div class="mobile-sub-dropdown">
-                        <a href="#" class="block py-2 px-4 hover:bg-blue-600 mobile-dropdown-toggle" onclick="toggleMobileSubDropdown(event, this)">Service 2</a>
+                        <a href="#" class="block py-2 px-4 hover:bg-blue-600 mobile-dropdown-toggle"
+                            onclick="toggleMobileSubDropdown(event, this)">Service 2</a>
                         <div class="mobile-sub-dropdown-content">
                             <a href="#" class="block py-2 px-4 hover:bg-blue-500">Sub Service 2.1</a>
                             <a href="#" class="block py-2 px-4 hover:bg-blue-500">Sub Service 2.2</a>
@@ -243,21 +107,24 @@
                 </div>
             </div>
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Management System</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">Management System</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">System 1</a>
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">System 2</a>
                 </div>
             </div>
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">News</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">News</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Latest News</a>
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Events</a>
                 </div>
             </div>
             <div class="mobile-dropdown">
-                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle" onclick="toggleMobileDropdown(event, this)">Contact</a>
+                <a href="#" class="block py-2 px-4 hover:bg-blue-700 mobile-dropdown-toggle"
+                    onclick="toggleMobileDropdown(event, this)">Contact</a>
                 <div class="mobile-dropdown-content">
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Contact Form</a>
                     <a href="#" class="block py-2 px-4 hover:bg-blue-600">Our Location</a>
@@ -267,13 +134,14 @@
     </header>
 
     <!-- Hero Section with Swiper Slider -->
-    <section class="relative">
+    <section class="relative banner-slider">
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <!-- Slide 1 -->
                 <div class="swiper-slide">
-                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg1.jpg')">
-                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                    <div class="relative bg-cover bg-center h-96 md:h-[70vh]"
+                        style="background-image: url('https://cafebiz.cafebizcdn.vn/162123310254002176/2023/7/13/tinh-than-quyet-tam-dung-xay-nen-nhung-cong-trinh-dinh-cao-6648-1689235998229-16892359989721556490740.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-30 flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h2 class="text-4xl font-bold mb-4">PROFESSIONAL HONESTY, ASSURANCE</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
@@ -296,8 +164,9 @@
                 </div>
                 <!-- Slide 2 -->
                 <div class="swiper-slide">
-                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg2.jpg')">
-                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                    <div class="relative bg-cover bg-center h-96 md:h-[70vh]"
+                        style="background-image: url('https://vietnamconstruction.vn/wp-content/uploads/2018/08/vietnamconstruction.vn-vi-20180809-h3.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-30 flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h2 class="text-4xl font-bold mb-4">INNOVATION AND EXCELLENCE</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
@@ -320,8 +189,9 @@
                 </div>
                 <!-- Slide 3 -->
                 <div class="swiper-slide">
-                    <div class="relative bg-cover bg-center sm:h-96 md:h-[70vh]" style="background-image: url('hero-bg3.jpg')">
-                        <div class="absolute inset-0 bg-blue-900 bg-opacity-50 flex items-center justify-center">
+                    <div class="relative bg-cover bg-center h-96 md:h-[70vh]"
+                        style="background-image: url('https://gate1vn.com/upload/images/G7.jpg')">
+                        <div class="absolute inset-0 bg-blue-900 bg-opacity-30 flex items-center justify-center">
                             <div class="text-center text-white">
                                 <h2 class="text-4xl font-bold mb-4">SUSTAINABLE GROWTH</h2>
                                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4">
@@ -435,19 +305,69 @@
         </div>
     </section>
 
+    <!--  section doi tac -->
+    <section id="doitac" class="py-12">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-8">Đối tác của chúng tôi</h2>
+            <div class="swiper swiperDoiTac">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-thanhcong.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-evn.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-thanhcong.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-evn.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-thanhcong.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-evn.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-thanhcong.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-evn.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="https://tscvietnam.com.vn/Upload/gioi-thieu/logo-thanhcong.jpg" alt="slider" class="!w-[100px]">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer class="bg-blue-900 text-white py-12">
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">APPROVAL</h3>
+                    <h3 class="text-xl font-semibold mb-4">LGT Joint Company Stock</h3>
                     <div class="flex space-x-4">
-                        <img src="classnk.png" alt="ClassNK" class="h-12">
-                        <img src="lloyds.png" alt="Lloyd's Register" class="h-12">
+                        <img src="./assets/img/logoLGT.png" alt="ClassNK" class="h-12">
+                        <!-- <img src="./assets/img/logoLGT.png" alt="Lloyd's Register" class="h-12"> -->
                     </div>
                 </div>
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">PHATECO</h3>
+                    <h3 class="text-xl font-semibold mb-4">LGT</h3>
+                    <p>Technical Services Joint Stock Company</p>
+                    <p>Address: 123 Example St, City, Country</p>
+                    <p>Email: info@phateco.com</p>
+                    <p>Phone: +123 456 789</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white hover:text-blue-300"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-4">LGT</h3>
                     <p>Technical Services Joint Stock Company</p>
                     <p>Address: 123 Example St, City, Country</p>
                     <p>Email: info@phateco.com</p>
@@ -462,7 +382,7 @@
                     <h3 class="text-xl font-semibold mb-4">LOCATION</h3>
                     <div class="w-full h-48 bg-gray-300 rounded-lg">
                         <!-- Placeholder for map -->
-                        <p class="text-center pt-20">Map Placeholder</p>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3724.1018766567718!2d105.79133823297434!3d21.028609287330585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab49327140bb%3A0xa7e9506d00d4e128!2zNjUgUC4gVHLGsMahbmcgQ8O0bmcgR2lhaSwgROG7i2NoIFbhu41uZywgQ-G6p3UgR2nhuqV5LCBIw6AgTuG7mWksIFZp4buHdCBOYW0!5e0!3m2!1svi!2s!4v1743606264708!5m2!1svi!2s" width="100%" class="h-full" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
@@ -501,8 +421,9 @@
         // Initialize Swiper
         var swiper = new Swiper('.swiper-container', {
             loop: true,
+            speed: 1600,
             autoplay: {
-                delay: 5000,
+                delay: 3000,
                 disableOnInteraction: false,
             },
             pagination: {
@@ -514,7 +435,20 @@
                 prevEl: '.swiper-button-prev',
             },
             slidesPerView: 1,
-            spaceBetween: 0,
+            spaceBetween: 30,
+            effect: "fade",
+        });
+
+        // slider doi tac image
+        var swiper = new Swiper(".swiperDoiTac", {
+            slidesPerView: 5,
+            spaceBetween: 30,
+            loop: true,
+            speed: 1600,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
         });
 
         // Fixed Header on Scroll
@@ -545,4 +479,5 @@
         });
     </script>
 </body>
+
 </html>

@@ -1,0 +1,132 @@
+/* Fix Swiper overflow */
+.swiper-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+.banner-slider .swiper-slide {
+    width: 100% !important;
+    flex-shrink: 0;
+}
+body {
+    overflow-x: hidden;
+}
+
+/* Hover scale effect for image blocks */
+.image-block {
+    transition: transform 0.3s ease;
+}
+.image-block:hover {
+    transform: scale(1.05);
+}
+
+/* Fixed Header */
+header {
+    transition: all 0.3s ease;
+}
+header.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Scroll to Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #1e3a8a;
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+#scroll-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+#scroll-to-top:hover {
+    background-color: #2563eb;
+}
+
+/* Dropdown menu styles for desktop */
+.dropdown {
+    position: relative;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e3a8a;
+    min-width: 200px;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+.dropdown-content a {
+    color: white;
+    padding: 10px 15px;
+    display: block;
+    text-decoration: none;
+}
+.dropdown-content a:hover {
+    background-color: #2563eb;
+}
+/* Submenu (dropdown cấp 2) for desktop */
+.dropdown-content .sub-dropdown {
+    position: relative;
+}
+.dropdown-content .sub-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #1e40af;
+    min-width: 200px;
+    left: 100%;
+    top: 0;
+}
+.sub-dropdown:hover .sub-dropdown-content {
+    display: block;
+}
+
+/* Mobile menu styles */
+#mobile-menu {
+    display: none;
+}
+.mobile-dropdown {
+    position: relative;
+}
+.mobile-dropdown-content {
+    display: none;
+    background-color: #1e40af;
+    padding-left: 15px;
+}
+.mobile-sub-dropdown-content {
+    display: none;
+    background-color: #1e3a8a;
+    padding-left: 15px;
+}
+.mobile-dropdown.active .mobile-dropdown-content,
+.mobile-sub-dropdown.active .mobile-sub-dropdown-content {
+    display: block;
+}
+.mobile-dropdown-toggle::after {
+    content: '\f078';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    float: right;
+}
+.show{
+    display: block !important;
+}
